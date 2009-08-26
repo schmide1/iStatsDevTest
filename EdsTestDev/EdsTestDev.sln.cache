@@ -1,0 +1,174 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="3.5" InitialTargets="ValidateSolutionConfiguration;ValidateToolsVersions" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_SolutionProjectConfiguration>Debug|Any CPU</_SolutionProjectConfiguration>
+    <_SolutionProjectToolsVersion>3.5</_SolutionProjectToolsVersion>
+    <_SolutionProjectCacheVersion>3.5</_SolutionProjectCacheVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <_SolutionProjectProjects Include="EdsTestDev\EdsTestDev.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition=" ('$(Configuration)' == 'Debug') and ('$(Platform)' == 'Any CPU') ">
+    <BuildLevel0 Include="EdsTestDev\EdsTestDev.csproj">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </BuildLevel0>
+  </ItemGroup>
+  <ItemGroup Condition=" ('$(Configuration)' == 'Release') and ('$(Platform)' == 'Any CPU') ">
+    <BuildLevel0 Include="EdsTestDev\EdsTestDev.csproj">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </BuildLevel0>
+  </ItemGroup>
+  <UsingTask TaskName="Microsoft.Build.Tasks.CreateTemporaryVCProject" AssemblyName="Microsoft.Build.Tasks.v3.5, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <UsingTask TaskName="Microsoft.Build.Tasks.ResolveVCProjectOutput" AssemblyName="Microsoft.Build.Tasks.v3.5, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <PropertyGroup Condition=" '$(Configuration)' == '' ">
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == '' ">
+    <Platform>Any CPU</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" ('$(AspNetConfiguration)' == '') ">
+    <AspNetConfiguration>$(Configuration)</AspNetConfiguration>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SolutionDir>C:\Users\Ed\TestVSSVN\EdsTestDev\</SolutionDir>
+    <SolutionExt>.sln</SolutionExt>
+    <SolutionFileName>EdsTestDev.sln</SolutionFileName>
+    <SolutionName>EdsTestDev</SolutionName>
+    <SolutionPath>C:\Users\Ed\TestVSSVN\EdsTestDev\EdsTestDev.sln</SolutionPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' and '$(MSBuildToolsVersion)' == '2.0'">v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' and '$(MSBuildToolsVersion)' != '2.0'">v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" ('$(Configuration)' == 'Debug') and ('$(Platform)' == 'Any CPU') ">
+    <CurrentSolutionConfigurationContents>
+      <SolutionConfiguration xmlns="">
+        <ProjectConfiguration Project="{F2277E25-A973-4735-BB49-867A6CDFA9F5}">Debug|AnyCPU</ProjectConfiguration>
+        <ProjectConfiguration Project="{8E451E9E-EB2D-429A-B84C-642383636539}">Debug|AnyCPU</ProjectConfiguration>
+      </SolutionConfiguration>
+    </CurrentSolutionConfigurationContents>
+  </PropertyGroup>
+  <PropertyGroup Condition=" ('$(Configuration)' == 'Release') and ('$(Platform)' == 'Any CPU') ">
+    <CurrentSolutionConfigurationContents>
+      <SolutionConfiguration xmlns="">
+        <ProjectConfiguration Project="{F2277E25-A973-4735-BB49-867A6CDFA9F5}">Release|AnyCPU</ProjectConfiguration>
+        <ProjectConfiguration Project="{8E451E9E-EB2D-429A-B84C-642383636539}">Release|AnyCPU</ProjectConfiguration>
+      </SolutionConfiguration>
+    </CurrentSolutionConfigurationContents>
+  </PropertyGroup>
+  <Target Name="ValidateSolutionConfiguration">
+    <Error Text="The specified solution configuration &quot;$(Configuration)|$(Platform)&quot; is invalid. Please specify a valid solution configuration using the Configuration and Platform properties (e.g. MSBuild.exe Solution.sln /p:Configuration=Debug /p:Platform=&quot;Any CPU&quot;) or leave those properties blank to use the default solution configuration." Code="MSB4126" HelpKeyword="MSBuild.SolutionInvalidSolutionConfiguration" Condition="('$(CurrentSolutionConfigurationContents)' == '') and ('$(SkipInvalidConfigurations)' != 'true')" />
+    <Warning Text="The specified solution configuration &quot;$(Configuration)|$(Platform)&quot; is invalid. Please specify a valid solution configuration using the Configuration and Platform properties (e.g. MSBuild.exe Solution.sln /p:Configuration=Debug /p:Platform=&quot;Any CPU&quot;) or leave those properties blank to use the default solution configuration." Code="MSB4126" HelpKeyword="MSBuild.SolutionInvalidSolutionConfiguration" Condition="('$(CurrentSolutionConfigurationContents)' == '') and ('$(SkipInvalidConfigurations)' == 'true')" />
+    <Message Text="Building solution configuration &quot;$(Configuration)|$(Platform)&quot;." Condition="'$(CurrentSolutionConfigurationContents)' != ''" />
+  </Target>
+  <Target Name="ValidateToolsVersions">
+    <Error Text="The tools version &quot;$(MSBuildToolsVersion)&quot; of the solution does not support building projects with a different tools version." Code="MSB4149" HelpKeyword="MSBuild.SolutionToolsVersionDoesNotSupportProjectToolsVersion" Condition="'$(MSBuildToolsVersion)' == '2.0' and ('$(ProjectToolsVersion)' != '2.0' and '$(ProjectToolsVersion)' != '')" />
+  </Target>
+  <Target Name="GetFrameworkPathAndRedistList">
+    <GetFrameworkPath>
+      <Output TaskParameter="Path" ItemName="_CombinedTargetFrameworkDirectoriesItem" Condition="'$(MSBuildToolsVersion)' == '2.0'" />
+      <Output TaskParameter="FrameworkVersion35Path" ItemName="_CombinedTargetFrameworkDirectoriesItem" Condition=" '$(TargetFrameworkVersion)' == 'v3.5' and '$(MSBuildToolsVersion)' != '2.0'" />
+      <Output TaskParameter="FrameworkVersion30Path" ItemName="_CombinedTargetFrameworkDirectoriesItem" Condition=" ('$(TargetFrameworkVersion)' == 'v3.0' or '$(TargetFrameworkVersion)' == 'v3.5') and '$(MSBuildToolsVersion)' != '2.0'" />
+      <Output TaskParameter="FrameworkVersion20Path" ItemName="_CombinedTargetFrameworkDirectoriesItem" Condition=" ('$(TargetFrameworkVersion)' == 'v2.0' or '$(TargetFrameworkVersion)' == 'v3.0' or '$(TargetFrameworkVersion)' == 'v3.5') and '$(MSBuildToolsVersion)' != '2.0'" />
+    </GetFrameworkPath>
+    <CreateItem Include="@(_CombinedTargetFrameworkDirectoriesItem->'%(Identity)\RedistList\*.xml')">
+      <Output TaskParameter="Include" ItemName="InstalledAssemblyTables" />
+    </CreateItem>
+  </Target>
+  <Target Name="EdsTestDevSite" DependsOnTargets=";GetFrameworkPathAndRedistList" Condition=" ('$(CurrentSolutionConfigurationContents)' != '') and (false or ( ('$(Configuration)' == 'Debug') and ('$(Platform)' == 'Any CPU') ) or ( ('$(Configuration)' == 'Release') and ('$(Platform)' == 'Any CPU') )) ">
+    <CreateItem Include="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetPhysicalPath)\Bin\*.refresh">
+      <Output TaskParameter="Include" ItemName="Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_RefreshFile" />
+    </CreateItem>
+    <ReadLinesFromFile File="%(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_RefreshFile.Identity)" Condition=" '%(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_RefreshFile.Identity)' != '' ">
+      <Output TaskParameter="Lines" ItemName="Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_ReferenceRelPath" />
+    </ReadLinesFromFile>
+    <CombinePath BasePath="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetPhysicalPath)" Paths="@(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_ReferenceRelPath)">
+      <Output TaskParameter="CombinedPaths" ItemName="Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References" />
+    </CombinePath>
+    <Copy SourceFiles="@(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References->'%(FullPath)')" DestinationFolder="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetPhysicalPath)\Bin\" Condition="!Exists('%(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References.Identity)')" ContinueOnError="true" />
+    <ResolveAssemblyReference Assemblies="@(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References->'%(FullPath)')" TargetFrameworkDirectories="@(_CombinedTargetFrameworkDirectoriesItem)" InstalledAssemblyTables="@(InstalledAssemblyTables)" SearchPaths="{RawFileName};{TargetFrameworkDirectory};{GAC}" FindDependencies="true" FindSatellites="true" FindSerializationAssemblies="true" FindRelatedFiles="true" Condition="Exists('%(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References.Identity)')">
+      <Output TaskParameter="CopyLocalFiles" ItemName="Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_CopyLocalFiles" />
+    </ResolveAssemblyReference>
+    <Copy SourceFiles="@(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_CopyLocalFiles)" DestinationFiles="@(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_CopyLocalFiles->'$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetPhysicalPath)\Bin\%(DestinationSubDirectory)%(Filename)%(Extension)')" Condition="(false)" />
+    <AspNetCompiler VirtualPath="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetVirtualPath)" PhysicalPath="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetPhysicalPath)" TargetPath="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetTargetPath)" Force="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetForce)" Updateable="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetUpdateable)" Debug="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetDebug)" KeyFile="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetKeyFile)" KeyContainer="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetKeyContainer)" DelaySign="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetDelaySign)" AllowPartiallyTrustedCallers="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetAPTCA)" FixedNames="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetFixedNames)" Condition="(false)" />
+    <Message Text="Skipping because the &quot;$(AspNetConfiguration)&quot; configuration is not supported for this web project.  You can use the AspNetConfiguration property to override the configuration used for building web projects, by adding /p:AspNetConfiguration=&lt;value&gt; to the command line. Currently web projects only support Debug and Release configurations." Condition="!((false))" />
+  </Target>
+  <Target Name="EdsTestDevSite:Clean" DependsOnTargets=";GetFrameworkPathAndRedistList">
+    <Message Text="Web projects do not support the &quot;Clean&quot; target.  Continuing with remaining projects ..." />
+  </Target>
+  <Target Name="EdsTestDevSite:Rebuild" DependsOnTargets=";GetFrameworkPathAndRedistList" Condition=" ('$(CurrentSolutionConfigurationContents)' != '') and (false or ( ('$(Configuration)' == 'Debug') and ('$(Platform)' == 'Any CPU') ) or ( ('$(Configuration)' == 'Release') and ('$(Platform)' == 'Any CPU') )) ">
+    <CreateItem Include="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetPhysicalPath)\Bin\*.refresh">
+      <Output TaskParameter="Include" ItemName="Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild_RefreshFile" />
+    </CreateItem>
+    <ReadLinesFromFile File="%(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild_RefreshFile.Identity)" Condition=" '%(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild_RefreshFile.Identity)' != '' ">
+      <Output TaskParameter="Lines" ItemName="Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild_ReferenceRelPath" />
+    </ReadLinesFromFile>
+    <CombinePath BasePath="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetPhysicalPath)" Paths="@(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild_ReferenceRelPath)">
+      <Output TaskParameter="CombinedPaths" ItemName="Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild" />
+    </CombinePath>
+    <Copy SourceFiles="@(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild->'%(FullPath)')" DestinationFolder="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetPhysicalPath)\Bin\" Condition="!Exists('%(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild.Identity)')" ContinueOnError="true" />
+    <ResolveAssemblyReference Assemblies="@(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild->'%(FullPath)')" TargetFrameworkDirectories="@(_CombinedTargetFrameworkDirectoriesItem)" InstalledAssemblyTables="@(InstalledAssemblyTables)" SearchPaths="{RawFileName};{TargetFrameworkDirectory};{GAC}" FindDependencies="true" FindSatellites="true" FindSerializationAssemblies="true" FindRelatedFiles="true" Condition="Exists('%(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild.Identity)')">
+      <Output TaskParameter="CopyLocalFiles" ItemName="Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild_CopyLocalFiles" />
+    </ResolveAssemblyReference>
+    <Copy SourceFiles="@(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild_CopyLocalFiles)" DestinationFiles="@(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_References_Rebuild_CopyLocalFiles->'$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetPhysicalPath)\Bin\%(DestinationSubDirectory)%(Filename)%(Extension)')" Condition="(false)" />
+    <AspNetCompiler VirtualPath="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetVirtualPath)" PhysicalPath="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetPhysicalPath)" TargetPath="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetTargetPath)" Force="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetForce)" Updateable="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetUpdateable)" Debug="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetDebug)" KeyFile="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetKeyFile)" KeyContainer="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetKeyContainer)" DelaySign="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetDelaySign)" AllowPartiallyTrustedCallers="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetAPTCA)" FixedNames="$(Project_F2277E25-A973-4735-BB49-867A6CDFA9F5_AspNetFixedNames)" Condition="(false)" />
+    <Message Text="Skipping because the &quot;$(AspNetConfiguration)&quot; configuration is not supported for this web project.  You can use the AspNetConfiguration property to override the configuration used for building web projects, by adding /p:AspNetConfiguration=&lt;value&gt; to the command line. Currently web projects only support Debug and Release configurations." Condition="!((false))" />
+  </Target>
+  <Target Name="EdsTestDevSite:Publish" DependsOnTargets=";GetFrameworkPathAndRedistList">
+    <Message Text="Web projects do not support the &quot;Publish&quot; target.  Continuing with remaining projects ..." />
+  </Target>
+  <Target Name="EdsTestDev" Condition="'$(CurrentSolutionConfigurationContents)' != ''" Outputs="@(EdsTestDevBuildOutput)">
+    <MSBuild Projects="EdsTestDev\EdsTestDev.csproj" Properties="Configuration=Debug; Platform=AnyCPU; BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" ToolsVersion="$(ProjectToolsVersion)" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)" Condition=" ('$(Configuration)' == 'Debug') and ('$(Platform)' == 'Any CPU') ">
+      <Output TaskParameter="TargetOutputs" ItemName="EdsTestDevBuildOutput" />
+    </MSBuild>
+    <MSBuild Projects="EdsTestDev\EdsTestDev.csproj" Properties="Configuration=Release; Platform=AnyCPU; BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" ToolsVersion="$(ProjectToolsVersion)" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)" Condition=" ('$(Configuration)' == 'Release') and ('$(Platform)' == 'Any CPU') ">
+      <Output TaskParameter="TargetOutputs" ItemName="EdsTestDevBuildOutput" />
+    </MSBuild>
+  </Target>
+  <Target Name="EdsTestDev:Clean" Condition="'$(CurrentSolutionConfigurationContents)' != ''">
+    <MSBuild Projects="EdsTestDev\EdsTestDev.csproj" Targets="Clean" Properties="Configuration=Debug; Platform=AnyCPU; BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" ToolsVersion="$(ProjectToolsVersion)" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)" Condition=" ('$(Configuration)' == 'Debug') and ('$(Platform)' == 'Any CPU') " />
+    <MSBuild Projects="EdsTestDev\EdsTestDev.csproj" Targets="Clean" Properties="Configuration=Release; Platform=AnyCPU; BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" ToolsVersion="$(ProjectToolsVersion)" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)" Condition=" ('$(Configuration)' == 'Release') and ('$(Platform)' == 'Any CPU') " />
+  </Target>
+  <Target Name="EdsTestDev:Rebuild" Condition="'$(CurrentSolutionConfigurationContents)' != ''" Outputs="@(EdsTestDevBuildOutput)">
+    <MSBuild Projects="EdsTestDev\EdsTestDev.csproj" Targets="Rebuild" Properties="Configuration=Debug; Platform=AnyCPU; BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" ToolsVersion="$(ProjectToolsVersion)" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)" Condition=" ('$(Configuration)' == 'Debug') and ('$(Platform)' == 'Any CPU') ">
+      <Output TaskParameter="TargetOutputs" ItemName="EdsTestDevBuildOutput" />
+    </MSBuild>
+    <MSBuild Projects="EdsTestDev\EdsTestDev.csproj" Targets="Rebuild" Properties="Configuration=Release; Platform=AnyCPU; BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" ToolsVersion="$(ProjectToolsVersion)" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)" Condition=" ('$(Configuration)' == 'Release') and ('$(Platform)' == 'Any CPU') ">
+      <Output TaskParameter="TargetOutputs" ItemName="EdsTestDevBuildOutput" />
+    </MSBuild>
+  </Target>
+  <Target Name="EdsTestDev:Publish" Condition="'$(CurrentSolutionConfigurationContents)' != ''">
+    <MSBuild Projects="EdsTestDev\EdsTestDev.csproj" Targets="Publish" Properties="Configuration=Debug; Platform=AnyCPU; BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" ToolsVersion="$(ProjectToolsVersion)" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)" Condition=" ('$(Configuration)' == 'Debug') and ('$(Platform)' == 'Any CPU') " />
+    <MSBuild Projects="EdsTestDev\EdsTestDev.csproj" Targets="Publish" Properties="Configuration=Release; Platform=AnyCPU; BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" ToolsVersion="$(ProjectToolsVersion)" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)" Condition=" ('$(Configuration)' == 'Release') and ('$(Platform)' == 'Any CPU') " />
+  </Target>
+  <Target Name="Build" Condition="'$(CurrentSolutionConfigurationContents)' != ''" Outputs="@(CollectedBuildOutput)">
+    <MSBuild Condition="@(BuildLevel0) != ''" Projects="@(BuildLevel0)" Properties="Configuration=%(Configuration); Platform=%(Platform); BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" ToolsVersion="$(ProjectToolsVersion)" BuildInParallel="true" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)">
+      <Output TaskParameter="TargetOutputs" ItemName="CollectedBuildOutput" />
+    </MSBuild>
+    <Message Text="The project &quot;%(SkipLevel0.Identity)&quot; is not selected for building in solution configuration &quot;$(Configuration)|$(Platform)&quot;." Condition="@(SkipLevel0) != ''" />
+    <Warning Text="The project configuration for project &quot;%(MissingConfigLevel0.Identity)&quot; was not specified in the solution file for the solution configuration &quot;$(Configuration)|$(Platform)&quot;." Code="MSB4121" HelpKeyword="MSBuild.SolutionProjectConfigurationMissing" Condition="@(MissingConfigLevel0) != ''" />
+    <CallTarget Targets="EdsTestDevSite" RunEachTargetSeparately="true" />
+  </Target>
+  <Target Name="Clean" Condition="'$(CurrentSolutionConfigurationContents)' != ''">
+    <MSBuild Condition="@(BuildLevel0) != ''" Projects="@(BuildLevel0)" Properties="Configuration=%(Configuration); Platform=%(Platform); BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" Targets="Clean" ToolsVersion="$(ProjectToolsVersion)" BuildInParallel="true" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)" />
+    <Message Text="The project &quot;%(SkipLevel0.Identity)&quot; is not selected for building in solution configuration &quot;$(Configuration)|$(Platform)&quot;." Condition="@(SkipLevel0) != ''" />
+    <Warning Text="The project configuration for project &quot;%(MissingConfigLevel0.Identity)&quot; was not specified in the solution file for the solution configuration &quot;$(Configuration)|$(Platform)&quot;." Code="MSB4121" HelpKeyword="MSBuild.SolutionProjectConfigurationMissing" Condition="@(MissingConfigLevel0) != ''" />
+    <CallTarget Targets="EdsTestDevSite:Clean" RunEachTargetSeparately="true" />
+    <Delete Files="EdsTestDev.sln.cache" />
+  </Target>
+  <Target Name="Rebuild" Condition="'$(CurrentSolutionConfigurationContents)' != ''" Outputs="@(CollectedBuildOutput)">
+    <MSBuild Condition="@(BuildLevel0) != ''" Projects="@(BuildLevel0)" Properties="Configuration=%(Configuration); Platform=%(Platform); BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" Targets="Rebuild" ToolsVersion="$(ProjectToolsVersion)" BuildInParallel="true" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)">
+      <Output TaskParameter="TargetOutputs" ItemName="CollectedBuildOutput" />
+    </MSBuild>
+    <Message Text="The project &quot;%(SkipLevel0.Identity)&quot; is not selected for building in solution configuration &quot;$(Configuration)|$(Platform)&quot;." Condition="@(SkipLevel0) != ''" />
+    <Warning Text="The project configuration for project &quot;%(MissingConfigLevel0.Identity)&quot; was not specified in the solution file for the solution configuration &quot;$(Configuration)|$(Platform)&quot;." Code="MSB4121" HelpKeyword="MSBuild.SolutionProjectConfigurationMissing" Condition="@(MissingConfigLevel0) != ''" />
+    <CallTarget Targets="EdsTestDevSite:Rebuild" RunEachTargetSeparately="true" />
+  </Target>
+  <Target Name="Publish" Condition="'$(CurrentSolutionConfigurationContents)' != ''">
+    <MSBuild Condition="@(BuildLevel0) != ''" Projects="@(BuildLevel0)" Properties="Configuration=%(Configuration); Platform=%(Platform); BuildingSolutionFile=true; CurrentSolutionConfigurationContents=$(CurrentSolutionConfigurationContents); SolutionDir=$(SolutionDir); SolutionExt=$(SolutionExt); SolutionFileName=$(SolutionFileName); SolutionName=$(SolutionName); SolutionPath=$(SolutionPath)" Targets="Publish" ToolsVersion="$(ProjectToolsVersion)" BuildInParallel="true" UnloadProjectsOnCompletion="$(UnloadProjectsOnCompletion)" UseResultsCache="$(UseResultsCache)" />
+    <Message Text="The project &quot;%(SkipLevel0.Identity)&quot; is not selected for building in solution configuration &quot;$(Configuration)|$(Platform)&quot;." Condition="@(SkipLevel0) != ''" />
+    <Warning Text="The project configuration for project &quot;%(MissingConfigLevel0.Identity)&quot; was not specified in the solution file for the solution configuration &quot;$(Configuration)|$(Platform)&quot;." Code="MSB4121" HelpKeyword="MSBuild.SolutionProjectConfigurationMissing" Condition="@(MissingConfigLevel0) != ''" />
+    <CallTarget Targets="EdsTestDevSite:Publish" RunEachTargetSeparately="true" />
+  </Target>
+</Project>
