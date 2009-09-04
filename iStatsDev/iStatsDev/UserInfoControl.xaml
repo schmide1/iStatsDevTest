@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="myistats.UserInfoControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="600" Height="500">
+    <Grid x:Name="LayoutRoot" Background="White" ShowGridLines="True" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style x:Name="styleText" TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style x:Name="styleTextBox" TargetType="TextBox">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Width" Value="200" />
+                <Setter Property="Height" Value="30" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style x:Name="stylePassword" TargetType="PasswordBox">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Width" Value="200" />
+                <Setter Property="Height" Value="30" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style x:Name="styleTextWarning" TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Foreground" Value="Orange" />
+            </Style>
+        </Grid.Resources>
+        <!-- Email -->
+        <TextBlock Text="E-mail:" Grid.Column="1" Grid.Row="1" Style="{StaticResource styleText}"/>
+        <TextBox x:Name="txtEmail" Grid.Column="2" Grid.Row="1" Style="{StaticResource styleTextBox}" LostFocus="txtEmail_LostFocus"/>
+        <TextBlock x:Name="lblEmailWarning" Text="Email is not in valid format!" Grid.Column="3" Grid.Row="1" Style="{StaticResource styleTextWarning}" Visibility="Collapsed" />
+        <!-- UserID -->
+        <TextBlock Text="Username:" Grid.Column="1" Grid.Row="2" Style="{StaticResource styleText}"/>
+        <TextBox x:Name="txtUsername" Grid.Column="2" Grid.Row="2" Style="{StaticResource styleTextBox}" LostFocus="txtUsername_LostFocus"/>
+        <TextBlock x:Name="lblUsername" Text="Username must be between 4 and 20 letters and numbers." Grid.Column="3" Grid.Row="1" Style="{StaticResource styleTextWarning}" Visibility="Collapsed" />
+        <!-- First Name -->
+        <TextBlock Text="First Name:" Grid.Column="1" Grid.Row="3" Style="{StaticResource styleText}"/>
+        <TextBox x:Name="txtFirstName" Grid.Column="2" Grid.Row="3" Style="{StaticResource styleTextBox}" LostFocus="txtFirstName_LostFocus"/>
+        <TextBlock x:Name="lblFNameWarning" Text="Incorrect format!" Grid.Column="3" Grid.Row="2" Style="{StaticResource styleTextWarning}" Visibility="Collapsed"/>
+        <!-- Middle Name -->
+        <TextBlock Text="Middle Name:" Grid.Column="1" Grid.Row="4" Style="{StaticResource styleText}"/>
+        <TextBox x:Name="txtMiddleName" Grid.Column="2" Grid.Row="4" Style="{StaticResource styleTextBox}" LostFocus="txtMiddleName_LostFocus"/>
+        <!-- Last Name -->
+        <TextBlock Text="Last Name:" Grid.Column="1" Grid.Row="5" Style="{StaticResource styleText}"/>
+        <TextBox x:Name="txtLastName" Grid.Column="2" Grid.Row="5" Style="{StaticResource styleTextBox}" LostFocus="txtLastName_LostFocus"/>
+        <TextBlock x:Name="lblLNameWarning" Text="Incorrect format!" Grid.Column="3" Grid.Row="3" Style="{StaticResource styleTextWarning}" Visibility="Collapsed"/>
+        <!-- Password -->
+        <TextBlock Text="Password:" Grid.Column="1" Grid.Row="6" Style="{StaticResource styleText}" />
+        <PasswordBox x:Name="txtPass" Grid.Column="2" Grid.Row="6" Style="{StaticResource stylePassword}" LostFocus="txtPass_LostFocus" />
+        <TextBlock x:Name="lblPassWarning" Text="Password must be at least 6 characters." Grid.Column="3" Grid.Row="5" Style="{StaticResource styleTextWarning}" Visibility="Collapsed" />
+        <!-- Password Verify -->
+        <TextBlock Text="Verify Password:" Grid.Column="1" Grid.Row="7" Style="{StaticResource styleText}"/>
+        <PasswordBox x:Name="txtVerifyPass" Grid.Column="2" Grid.Row="7" Style="{StaticResource stylePassword}" LostFocus="txtPass_LostFocus"/>
+        <TextBlock x:Name="lblPassVerificationWarning" Text="Verification is incorrect!" Grid.Column="3" Grid.Row="6" Style="{StaticResource styleTextWarning}" Visibility="Collapsed" />
+       
+        <!-- Register / Cancel Buttons-->
+        <Button x:Name="btnRegister" Content="Register" Grid.Column="1" Grid.Row="9" HorizontalAlignment="Right" Width="75" Margin="30,0" Height="30" IsEnabled="False" Click="btnRegister_Click" />
+        <Button x:Name="btnCanel" Content="Cancel" Grid.Column="2" Grid.Row="9" HorizontalAlignment="Left" Width="75" Margin="30,0" Height="30" Click="btnCanel_Click"/>
+    </Grid>
+</UserControl>

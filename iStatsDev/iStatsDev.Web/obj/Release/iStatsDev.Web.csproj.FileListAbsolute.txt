@@ -1,0 +1,5 @@
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\bin\iStatsDev.Web.dll
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\bin\iStatsDev.Web.pdb
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\obj\Release\iStatsDev.Web.dll
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\obj\Release\iStatsDev.Web.pdb

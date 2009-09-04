@@ -1,0 +1,86 @@
+﻿<navigation:Page 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	x:Class="iStatsDev.userlanding" 
+	Title="userlanding Page"
+	d:DesignWidth="640" d:DesignHeight="480" Width="1024">
+	
+	<ScrollViewer Margin="0,0,0,-4" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+	
+		<Grid x:Name="LayoutRoot" Background="#FFB1B4CE" >
+			<Grid x:Name="grdLatestActivityOutter" Height="251" Margin="293,8,356,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment">
+				<Grid x:Name="grdLatestActivityInner" Margin="0,18,0,0">
+					<Grid.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FF7483A9" Offset="0"/>
+							<GradientStop Color="#FFB8C0D6" Offset="1"/>
+						</LinearGradientBrush>
+					</Grid.Background>
+					<Border x:Name="brdLatestActivity" BorderBrush="Black" BorderThickness="0,1,0,0"/>
+				</Grid>
+				<HyperlinkButton x:Name="linkEditLatestActivity" Height="18" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Content="edit"/>
+				<TextBlock x:Name="lblLatestActivity" Height="16" Margin="0,0,34,0" VerticalAlignment="Top" FontWeight="Bold" Text="Latest Activity" TextWrapping="Wrap"/>
+			</Grid>
+			<Grid x:Name="grdRightPanel" HorizontalAlignment="Right" Margin="0,-2,42,0" Width="183">
+				<Grid x:Name="grdTeamsLeaguesOutter" Height="206" HorizontalAlignment="Left" Margin="0,8,0,0" VerticalAlignment="Top" Width="181" d:LayoutOverrides="VerticalAlignment">
+					<Grid x:Name="grdTeamsLeaguesInner" Margin="0,18,0,0">
+						<Grid.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FF7483A9" Offset="0"/>
+								<GradientStop Color="#FFB8C0D6" Offset="1"/>
+							</LinearGradientBrush>
+						</Grid.Background>
+						<Border x:Name="brdTeamsLeagues" BorderBrush="Black" BorderThickness="0,1,0,0"/>
+					</Grid>
+					<HyperlinkButton x:Name="linkEditTeamsLeagues" Height="18" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Content="edit"/>
+					<TextBlock x:Name="lblTeamsLeagues" Height="16" Margin="0,0,34,0" VerticalAlignment="Top" FontWeight="Bold" Text="My Teams and Leagues" TextWrapping="Wrap"/>
+				</Grid>
+				<Grid x:Name="grdUpcomingEventsOutter" Height="206" HorizontalAlignment="Left" Margin="0,229,0,0" VerticalAlignment="Top" Width="178">
+					<Grid x:Name="grdUpcomingEventsInner" Margin="0,18,0,0">
+						<Grid.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FF7483A9" Offset="0"/>
+								<GradientStop Color="#FFB8C0D6" Offset="1"/>
+							</LinearGradientBrush>
+						</Grid.Background>
+						<Border x:Name="brdUpcomingEvents" BorderBrush="Black" BorderThickness="0,1,0,0"/>
+					</Grid>
+					<HyperlinkButton x:Name="linkEditUpcomingEvents" Height="18" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Content="edit"/>
+					<TextBlock x:Name="lblUpcomingEvents" Height="16" Margin="0,0,34,0" VerticalAlignment="Top" FontWeight="Bold" Text="Upcoming Events" TextWrapping="Wrap"/>
+				</Grid>
+			</Grid>
+			<Grid x:Name="grdLeftPanel" HorizontalAlignment="Left" Margin="40,0,0,-2" Width="183">
+				<Grid x:Name="grdFriendsOutter" Height="206" HorizontalAlignment="Left" Margin="2,246,0,0" VerticalAlignment="Top" Width="181">
+					<Grid x:Name="grdFriendsInner" Margin="0,12,0,6">
+						<Grid.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FF7483A9" Offset="0"/>
+								<GradientStop Color="#FFB8C0D6" Offset="1"/>
+							</LinearGradientBrush>
+						</Grid.Background>
+						<Border x:Name="brdFriends" BorderBrush="Black" BorderThickness="0,1,0,0"/>
+					</Grid>
+					<HyperlinkButton x:Name="linkEditFriends" Height="18" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Content="edit" Margin="0,-6,0,0"/>
+					<TextBlock x:Name="lblFriends" Height="16" Margin="0,-6,34,0" VerticalAlignment="Top" FontWeight="Bold" Text="Friends" TextWrapping="Wrap"/>
+				</Grid>
+				<Grid x:Name="grdUserInfoOutter" Height="206" HorizontalAlignment="Left" Margin="0,8,0,0" VerticalAlignment="Top" Width="178" d:LayoutOverrides="VerticalAlignment">
+					<Grid x:Name="grdUserInfoInner" Margin="0,18,0,0">
+						<Grid.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FF7483A9" Offset="0"/>
+								<GradientStop Color="#FFB8C0D6" Offset="1"/>
+							</LinearGradientBrush>
+						</Grid.Background>
+						<Border x:Name="brdUserInfo" BorderBrush="Black" BorderThickness="0,1,0,0"/>
+					</Grid>
+					<HyperlinkButton x:Name="linkEditUserInfo" Height="18" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Content="edit"/>
+					<TextBlock x:Name="lblUserInfo" Height="16" Margin="0,0,34,0" VerticalAlignment="Top" FontWeight="Bold" Text="Personal Information" TextWrapping="Wrap"/>
+				</Grid>
+			</Grid>
+		</Grid>
+	</ScrollViewer>
+</navigation:Page>
