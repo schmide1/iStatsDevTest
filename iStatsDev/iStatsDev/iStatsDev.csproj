@@ -80,6 +80,24 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\LeagueSetup\leagueconfirmation.xaml.cs">
+      <DependentUpon>leagueconfirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LeagueSetup\leaguepreview.xaml.cs">
+      <DependentUpon>leaguepreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LeagueSetup\leagueadminpermissions.xaml.cs">
+      <DependentUpon>leagueadminpermissions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LeagueSetup\leaguerules.xaml.cs">
+      <DependentUpon>leaguerules.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LeagueSetup\leagueteamsmanagers.xaml.cs">
+      <DependentUpon>leagueteamsmanagers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LeagueSetup\leaguedefinition.xaml.cs">
+      <DependentUpon>leaguedefinition.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
@@ -103,7 +121,24 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="IstatsLogo_NavHeader.png" />
+    <Resource Include="Views\arrow.png" />
     <Resource Include="Views\green_checkmark.png" />
+    <Resource Include="Views\LeagueSetup\League_Step1_Complete.png" />
+    <Resource Include="Views\LeagueSetup\League_Step2_Active.png" />
+    <Resource Include="Views\LeagueSetup\League_Step2_Complete.png" />
+    <Resource Include="Views\LeagueSetup\League_Step3_Active.png" />
+    <Resource Include="Views\LeagueSetup\League_Step3_Complete.png" />
+    <Resource Include="Views\LeagueSetup\League_Step4_Active.png" />
+    <Resource Include="Views\LeagueSetup\League_Step4_Complete.png" />
+    <Resource Include="Views\LeagueSetup\League_Step5_Active.png" />
+    <Resource Include="Views\LeagueSetup\League_Step5_Complete.png" />
+    <Resource Include="Views\LeagueSetup\League_Step6_Active.png" />
+    <Resource Include="Views\League_Step1_Active.png" />
+    <Resource Include="Views\League_Step2_Inactive.png" />
+    <Resource Include="Views\League_Step3_Inactive.png" />
+    <Resource Include="Views\League_Step4_Inactive.png" />
+    <Resource Include="Views\League_Step5_Inactive.png" />
+    <Resource Include="Views\League_Step6_Inactive.png" />
     <Resource Include="Views\red_x.png" />
     <Page Include="Views\ErrorWindow.xaml">
       <SubType>Designer</SubType>
@@ -118,6 +153,30 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </Page>
     <Page Include="MainPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LeagueSetup\leagueconfirmation.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LeagueSetup\leaguepreview.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LeagueSetup\leagueadminpermissions.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LeagueSetup\leaguerules.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LeagueSetup\leagueteamsmanagers.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LeagueSetup\leaguedefinition.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -142,7 +201,6 @@
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\LeagueSetup\" />
     <Folder Include="Views\TeamSetup\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\v3.0\Microsoft.Silverlight.CSharp.targets" />

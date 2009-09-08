@@ -1,0 +1,33 @@
+﻿<navigation:Page 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	x:Class="iStatsDev.leagueadminpermissions" 
+	Title="InteractiveStats - Create New League"
+	d:DesignWidth="640" d:DesignHeight="480">
+	
+	<Grid x:Name="LayoutRoot" Background="White" >
+		<StackPanel x:Name="stkSteps" Height="74" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+			<Image Margin="0,0,0,-4" Width="119" Source="League_Step1_Complete.png" Stretch="Fill"/>
+			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="/iStatsDev;Component/Views/arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+			<Image Margin="-6,0,0,-4" Width="119" Source="League_Step2_Complete.png" Stretch="Fill" Height="78"/>
+			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+			<Image Margin="-6,0,0,-4" Width="119" Source="League_Step3_Complete.png" Stretch="Fill" Height="78"/>
+			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+			<Image Margin="-6,0,0,-4" Width="119" Source="League_Step4_Active.png" Stretch="Fill" Height="78"/>
+			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step5_Inactive.png" Stretch="Fill"/>
+			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step6_Inactive.png" Stretch="Fill" Height="78"/>
+		</StackPanel>
+		<Button x:Name="btnPrevious" Height="29" HorizontalAlignment="Left" Margin="67,386,0,0" VerticalAlignment="Top" Width="83">
+			<HyperlinkButton Height="16" Width="54" Content="&lt;&lt; Prev" Foreground="Black" TargetName="ContentFrame" NavigateUri="/LeagueSetup/leaguerules" BindingValidationError="HyperlinkButton_BindingValidationError"/>
+		</Button>
+		<Button x:Name="btnNext" Margin="288,0,0,65" HorizontalAlignment="Left" Width="83" Height="29" VerticalAlignment="Bottom">
+			<HyperlinkButton Height="16" Width="54" Content="Next &gt;&gt;" Foreground="Black" TargetName="ContentFrame" NavigateUri="/LeagueSetup/leaguepreview"/>
+		</Button>
+	</Grid>
+</navigation:Page>

@@ -1,0 +1,51 @@
+﻿<navigation:Page 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	x:Class="iStatsDev.leaguedefinition" 
+	Title="InteractiveStats - Create New League"
+	d:DesignWidth="640" d:DesignHeight="480">
+	
+	<Grid x:Name="LayoutRoot" Background="White" >
+		<StackPanel x:Name="stkSteps" Height="74" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+			<Image Margin="0,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step1_Active.png" Stretch="Fill"/>
+			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="/iStatsDev;Component/Views/arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step2_Inactive.png" Stretch="Fill" Height="78"/>
+			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step3_Inactive.png" Stretch="Fill"/>
+			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step4_Inactive.png" Stretch="Fill" Height="78"/>
+			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step5_Inactive.png" Stretch="Fill"/>
+			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step6_Inactive.png" Stretch="Fill" Height="78"/>
+		</StackPanel>
+		<StackPanel Margin="8,127,199,165" Orientation="Horizontal">
+			<StackPanel x:Name="stkLabels" HorizontalAlignment="Left" Width="130">
+				<TextBlock x:Name="lblLeagueName" Margin="2,0,46,0" Text="League Name:" TextAlignment="Right" TextWrapping="Wrap" ToolTipService.ToolTip="Total number of teams in this league" d:LayoutOverrides="Width" HorizontalAlignment="Left"/>
+				<TextBlock x:Name="lblLeagueScope" Margin="2,20,0,0" Text="League Scope:" TextWrapping="Wrap" ToolTipService.ToolTip="" TextAlignment="Right" HorizontalAlignment="Left"/>
+				<TextBlock x:Name="lblLeagueState" Margin="0,20,45,0" Text="State:" TextWrapping="Wrap" ToolTipService.ToolTip="" Width="82" TextAlignment="Right" HorizontalAlignment="Left"/>
+				<TextBlock x:Name="lblLeagueSport" Margin="0,20,44,0" Text="Sport:" TextWrapping="Wrap" ToolTipService.ToolTip="" Width="83" TextAlignment="Right" HorizontalAlignment="Left"/>
+				<TextBlock x:Name="lblLeagueYear" Margin="0,20,0,0" Text="Year:" TextWrapping="Wrap" ToolTipService.ToolTip="" HorizontalAlignment="Left" Width="83" TextAlignment="Right"/>
+			</StackPanel>
+			<StackPanel x:Name="stkObjects" Margin="0,0,39,0" Width="304">
+				<TextBox x:Name="txtLeagueName" HorizontalAlignment="Left" Width="193" TextWrapping="Wrap"/>
+				<StackPanel x:Name="stkRadioButtons" Height="19" Margin="0,12,-77,0" Orientation="Horizontal" HorizontalAlignment="Left">
+					<RadioButton x:Name="rdoCity" HorizontalAlignment="Left" Content="City" GroupName="scope"/>
+					<RadioButton x:Name="rdoCounty" HorizontalAlignment="Left" Margin="10,0,0,0" Content="County" GroupName="scope"/>
+					<RadioButton x:Name="rdoState" Margin="10,0,0,0" Content="State" GroupName="scope" d:LayoutOverrides="Width"/>
+					<RadioButton x:Name="rdoCountry" Margin="10,0,0,0" Content="Country" HorizontalAlignment="Left" GroupName="scope"/>
+				</StackPanel>
+				<ComboBox x:Name="cboLeagueState" Width="120" HorizontalAlignment="Left" Margin="0,15,0,0"/>
+				<ComboBox x:Name="cboLeagueSport" Width="120" HorizontalAlignment="Left" Margin="0,15,0,0"/>
+				<ComboBox x:Name="cboLeagueYear" Width="120" HorizontalAlignment="Left" Margin="0,15,0,0"/>
+			</StackPanel>
+		</StackPanel>
+		<Button x:Name="btnNext" Height="29" Margin="288,386,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83">
+			<HyperlinkButton Height="16" Width="54" Content="Next &gt;&gt;" Foreground="Black" TargetName="ContentFrame" NavigateUri="/LeagueSetup/leagueteamsmanagers"/>
+		</Button>
+	</Grid>
+</navigation:Page>

@@ -37,3 +37,9 @@ C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Release\XapCacheFile.xml
 C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Release\Views\login.g.cs
 C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Release\Views\profile_edit.g.cs
 C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Release\Views\userlanding.g.cs
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Release\Views\LeagueSetup\leaguedefinition.g.cs
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Release\Views\LeagueSetup\leagueconfirmation.g.cs
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Release\Views\LeagueSetup\leaguepreview.g.cs
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Release\Views\LeagueSetup\leagueadminpermissions.g.cs
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Release\Views\LeagueSetup\leaguerules.g.cs
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Release\Views\LeagueSetup\leagueteamsmanagers.g.cs

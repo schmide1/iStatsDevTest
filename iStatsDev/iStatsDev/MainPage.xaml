@@ -71,6 +71,12 @@
                     <HyperlinkButton x:Name="Link5" Style="{StaticResource LinkStyle}" 
                                      NavigateUri="/userlanding" TargetName="ContentFrame" Content="userlanding"/>
 
+					<Rectangle x:Name="Divider6" Style="{StaticResource DividerStyle}"/>
+					
+                    <HyperlinkButton x:Name="Link6" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/LeagueSetup/leaguedefinition" TargetName="ContentFrame" Content="createLeague"/>
+
+
                 </StackPanel>
             </Border>
             <Border Height="21" Margin="0,0,0,-20" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="1"/>
