@@ -1,7 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+# Visual Web Developer Express 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iStatsDev", "iStatsDev\iStatsDev.csproj", "{4DDD7E3E-99D1-48EB-8883-6B49F0917E28}"
+	ProjectSection(ProjectDependencies) = postProject
+		{32FA7764-9FDF-421D-9ECA-F6CF5B10B2BF} = {32FA7764-9FDF-421D-9ECA-F6CF5B10B2BF}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iStatsDev.Web", "iStatsDev.Web\iStatsDev.Web.csproj", "{32FA7764-9FDF-421D-9ECA-F6CF5B10B2BF}"
 EndProject

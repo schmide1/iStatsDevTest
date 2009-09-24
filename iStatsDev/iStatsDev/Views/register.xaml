@@ -39,7 +39,7 @@
 							<BlurEffect/>
 						</Grid.Effect>
 						<TextBlock x:Name="txtStep4Header" Height="25" FontSize="16" FontWeight="Bold" Text="Step Four: Submit Your Info" TextWrapping="Wrap" Foreground="#FF4152BD" Margin="8,8,73,0" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment"/>
-						<Button x:Name="btnCreate" Height="32" Margin="59,0,0,65" VerticalAlignment="Bottom" Content="Create Account" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left" Width="154"/>
+						<Button x:Name="btnCreate" Height="32" Margin="59,0,0,65" VerticalAlignment="Bottom" Content="Create Account" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left" Width="154" Click="btnCreate_Click"/>
 						<Button x:Name="btnCancel" Height="32" Margin="0,0,102,65" VerticalAlignment="Bottom" Content="Cancel" HorizontalAlignment="Right" Width="64" d:LayoutOverrides="VerticalAlignment"/>
 					</Grid>
 					<Grid x:Name="grdThree" Height="201" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="428" Margin="0,0,0,-13">
@@ -73,7 +73,7 @@
 						<TextBox x:Name="txtPostalCode" Foreground="#FFA9AFBF" Width="66" TextWrapping="Wrap" Margin="112,202,0,0" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 						<TextBlock x:Name="lblCountry" Height="23" HorizontalAlignment="Left" Margin="22,0,0,43" Width="77" FontWeight="Bold" Text="Country" TextWrapping="Wrap" Foreground="#FF362776" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment, Height"/>
 						<ComboBox x:Name="cboCountry" Margin="112,0,67,43" Height="23" VerticalAlignment="Bottom"/>
-						<TextBox x:Name="txtFirstName" Foreground="#FFA9AFBF" HorizontalAlignment="Left" Width="113" Text="First Name" TextWrapping="Wrap" Margin="111,42,0,0" Height="23" VerticalAlignment="Top"/>
+						<TextBox x:Name="txtFirstName" Foreground="#FFA9AFBF" HorizontalAlignment="Left" Width="113" Text="First Name" TextWrapping="Wrap" Margin="111,42,0,0" Height="23" VerticalAlignment="Top" GotFocus="txtFirstName_GotFocus"/>
 						<TextBox x:Name="txtLastName" Foreground="#FFA9AFBF" Height="23" HorizontalAlignment="Left" Width="113" Text="Last Name" TextWrapping="Wrap" Margin="234,42,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
 					</Grid>
 					<Image x:Name="imgCheckmark" Height="16" HorizontalAlignment="Left" Margin="353,42,0,0" VerticalAlignment="Top" Width="19" Source="green_checkmark.png"/>

@@ -6,12 +6,19 @@
                     maxReceivedMessageSize="2147483647">
                     <security mode="None" />
                 </binding>
+                <binding name="BasicHttpBinding_IService11" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
             </basicHttpBinding>
         </bindings>
         <client>
             <endpoint address="http://localhost:53668/Service1.svc" binding="basicHttpBinding"
                 bindingConfiguration="BasicHttpBinding_IService1" contract="ServiceReference1.IService1"
                 name="BasicHttpBinding_IService1" />
+            <endpoint address="http://localhost:49763/Service1.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_IService11" contract="Svc.IService1"
+                name="BasicHttpBinding_IService11" />
         </client>
     </system.serviceModel>
 </configuration>

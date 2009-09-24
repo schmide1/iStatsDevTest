@@ -1,6 +1,7 @@
-﻿<xapCache source="C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\Bin\Debug\iStatsDev.xap" lastWriteTime="9/8/2009 3:03:25 PM">
-  <file source="C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\obj\Debug\iStatsDev.dll" archivePath="iStatsDev.dll" lastWriteTime="9/8/2009 3:03:23 PM" />
-  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v3.0\Libraries\Client\System.Windows.Controls.dll" archivePath="System.Windows.Controls.dll" lastWriteTime="6/23/2009 10:12:28 PM" />
-  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v3.0\Libraries\Client\System.Windows.Controls.Navigation.dll" archivePath="System.Windows.Controls.Navigation.dll" lastWriteTime="6/23/2009 10:12:28 PM" />
-  <file source="C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="9/4/2009 9:41:31 AM" />
+﻿<xapCache source="F:\Users\bojan\Documents\Visual Studio 2008\Projects\iStatsDev\iStatsDev\iStatsDev\Bin\Debug\iStatsDev.xap" lastWriteTime="9/18/2009 8:14:59 PM">
+  <file source="F:\Users\bojan\Documents\Visual Studio 2008\Projects\iStatsDev\iStatsDev\iStatsDev\obj\Debug\iStatsDev.dll" archivePath="iStatsDev.dll" lastWriteTime="9/18/2009 8:14:58 PM" />
+  <file source="f:\Program Files\Microsoft SDKs\Silverlight\v3.0\Libraries\Client\System.Windows.Controls.dll" archivePath="System.Windows.Controls.dll" lastWriteTime="6/23/2009 10:12:28 AM" />
+  <file source="f:\Program Files\Microsoft SDKs\Silverlight\v3.0\Libraries\Client\System.Windows.Controls.Navigation.dll" archivePath="System.Windows.Controls.Navigation.dll" lastWriteTime="6/23/2009 10:12:28 AM" />
+  <file source="F:\Users\bojan\Documents\Visual Studio 2008\Projects\iStatsDev\iStatsDev\iStatsDev\ServiceReferences.ClientConfig" archivePath="ServiceReferences.ClientConfig" lastWriteTime="9/18/2009 8:12:53 PM" />
+  <file source="F:\Users\bojan\Documents\Visual Studio 2008\Projects\iStatsDev\iStatsDev\iStatsDev\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="9/18/2009 8:04:17 PM" />
 </xapCache>
