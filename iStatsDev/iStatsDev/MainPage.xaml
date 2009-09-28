@@ -16,7 +16,7 @@
     	</Grid.Background>
 
         <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Background="{x:Null}">
-
+		<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
                               Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" Margin="0,15,0,0">
                 <navigation:Frame.UriMapper>
@@ -26,7 +26,8 @@
                   </uriMapper:UriMapper>
                 </navigation:Frame.UriMapper>
             </navigation:Frame>
-        </Border>
+        </ScrollViewer>
+		</Border>
 
         <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}">
         	<Grid.Background>

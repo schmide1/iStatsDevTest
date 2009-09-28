@@ -44,8 +44,9 @@
 				<ComboBox x:Name="cboLeagueYear" Width="120" HorizontalAlignment="Left" Margin="0,15,0,0"/>
 			</StackPanel>
 		</StackPanel>
-		<Button x:Name="btnNext" Height="29" Margin="288,386,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83">
-			<HyperlinkButton Height="16" Width="54" Content="Next &gt;&gt;" Foreground="Black" TargetName="ContentFrame" NavigateUri="/LeagueSetup/leagueteamsmanagers"/>
+		<Button x:Name="btnNextOld" Height="29" Margin="288,386,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190">
+			<HyperlinkButton Height="16" Width="139" Content="Navigate to Next Page" Foreground="Black" TargetName="ContentFrame" NavigateUri="/LeagueSetup/leagueteamsmanagers"/>
 		</Button>
+		<Button x:Name="btnNext" Height="32" Margin="88,0,0,65" VerticalAlignment="Bottom" Content="Next&gt;&gt;" HorizontalAlignment="Left" Width="154" TabIndex="15" d:LayoutOverrides="VerticalAlignment"/>
 	</Grid>
 </navigation:Page>

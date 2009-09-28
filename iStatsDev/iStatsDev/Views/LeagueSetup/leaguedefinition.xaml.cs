@@ -24,5 +24,6 @@ namespace iStatsDev
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
     }
 }
