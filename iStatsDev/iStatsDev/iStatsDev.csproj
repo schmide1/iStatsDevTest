@@ -68,6 +68,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls.cs" />
     <Compile Include="Service References\Svc\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

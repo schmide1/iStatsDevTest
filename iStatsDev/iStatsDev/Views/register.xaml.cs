@@ -67,7 +67,6 @@ namespace iStatsDev
             this.cboMonth.Items.Add("November");
             this.cboMonth.Items.Add("December");
 
-
         }
 
         // Executes when the user navigates to this page.
