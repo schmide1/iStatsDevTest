@@ -110,5 +110,32 @@ namespace iStatsDev
             MessageBox.Show("Saved!");
         }
 
+        private void pwdPassword1_GotFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	this.pwdPassword1.Background = new SolidColorBrush(Color.FromArgb(255, 194, 195, 233));
+            this.pwdPassword1.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
+            base.OnGotFocus(e);
+        }
+
+        private void pwdPassword1_LostFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	this.pwdPassword1.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+            this.pwdPassword1.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
+            base.OnLostFocus(e);
+        }
+ 
+		private void pwdPassword2_GotFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	this.pwdPassword2.Background = new SolidColorBrush(Color.FromArgb(255, 194, 195, 233));
+            this.pwdPassword2.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
+            base.OnGotFocus(e);
+        }
+
+        private void pwdPassword2_LostFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	this.pwdPassword2.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+            this.pwdPassword2.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
+            base.OnLostFocus(e);
+        }
     }
 }

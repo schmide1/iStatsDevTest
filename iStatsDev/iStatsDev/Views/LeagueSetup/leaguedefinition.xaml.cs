@@ -20,14 +20,20 @@ namespace iStatsDev
             InitializeComponent();	
 
 			this.cboLeagueCountry.Items.Add("United States");
-            this.cboLeagueCountry.Items.Add("Canada");
 			
 			this.cboLeagueState.Items.Add("New Jersey");
             this.cboLeagueState.Items.Add("New York");
 			this.cboLeagueState.Items.Add("Pennsylvania");
 			
-			this.cboLeagueState.Visibility=Visibility.Collapsed;
-			this.txtLeagueScopeDetail.Visibility=Visibility.Collapsed;	
+			this.cboLeagueSport.Items.Add("Baseball");
+			this.cboLeagueSport.Items.Add("Basketball");
+			this.cboLeagueSport.Items.Add("Golf");
+			this.cboLeagueSport.Items.Add("Soccer");
+			
+			this.cboLeagueYear.Items.Add("2009");
+			this.cboLeagueYear.Items.Add("2010");
+						
+			this.stkLeagueState.Visibility=Visibility.Collapsed;
         }
 
         // Executes when the user navigates to this page.
@@ -38,18 +44,47 @@ namespace iStatsDev
 
         private void rdoCity_Checked(object sender, System.Windows.RoutedEventArgs e)
         { // TODO: Add event handler implementation here.
-			this.cboLeagueState.Visibility=Visibility.Visible;
+			this.stkLeagueState.Visibility=Visibility.Visible;
 			this.txtLeagueScopeDetail.Visibility=Visibility.Visible;
-     		this.txtLeagueScopeDetail.Text="Enter city";
+     		
+			if (this.txtLeagueScopeDetail.Text.Equals("") || (this.txtLeagueScopeDetail.Text.Equals("Enter county"))) {
+				this.txtLeagueScopeDetail.Text="Enter city";
+			}
+		}
+		
+		private void rdoCounty_Checked(object sender, System.Windows.RoutedEventArgs e)
+        { // TODO: Add event handler implementation here.
+			this.stkLeagueState.Visibility=Visibility.Visible;
+			this.txtLeagueScopeDetail.Visibility=Visibility.Visible;
+     		
+			if (this.txtLeagueScopeDetail.Text.Equals("") || (this.txtLeagueScopeDetail.Text.Equals("Enter city"))) {
+				this.txtLeagueScopeDetail.Text="Enter county";
+			}
+		}
+		
+		private void rdoState_Checked(object sender, System.Windows.RoutedEventArgs e)
+        { // TODO: Add event handler implementation here.
+			this.stkLeagueState.Visibility=Visibility.Visible;
+			this.txtLeagueScopeDetail.Visibility=Visibility.Collapsed;
+     		
+		}
+		
+		private void rdoCountry_Checked(object sender, System.Windows.RoutedEventArgs e)
+        { // TODO: Add event handler implementation here.
+			this.stkLeagueState.Visibility=Visibility.Collapsed;
+		}
+		
+		private void rdoInternational_Checked(object sender, System.Windows.RoutedEventArgs e)
+        { // TODO: Add event handler implementation here.
+			this.stkLeagueState.Visibility=Visibility.Collapsed;
 		}
         
 		private void txtLeagueScopeDetail_GotFocus(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.				
-			if (this.txtLeagueScopeDetail.Text.Equals("Enter city")) {
+			if (this.txtLeagueScopeDetail.Text.Equals("Enter city") || (this.txtLeagueScopeDetail.Text.Equals("Enter county")))
 				this.txtLeagueScopeDetail.Text = "";				
-			}				
-			
+	
 			//txtLeagueScopeDetail.Foreground = new SolidColorBrush(Colors.Black);
 			//txtLeagueScopeDetail.Background = new SolidColorBrush(Color.FromArgb);
 		

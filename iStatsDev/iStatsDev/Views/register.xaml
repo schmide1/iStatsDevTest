@@ -47,9 +47,9 @@
 						<TextBlock x:Name="lblUserID" Height="23" HorizontalAlignment="Left" Width="51" Text="User ID" TextWrapping="Wrap" FontWeight="Bold" Margin="14,29,0,0" Foreground="#FF362776" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, Height"/>
 						<local:ccTextBox x:Name="txtUserID" TabIndex="10" Margin="147,29,120,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
 						<TextBlock x:Name="lblPassword1" Height="23" HorizontalAlignment="Left" Margin="14,94,0,109" Width="65" FontWeight="Bold" Text="Password" TextWrapping="Wrap" Foreground="#FF362776" d:LayoutOverrides="HorizontalAlignment"/>
-						<PasswordBox x:Name="pwdPassword1" TabIndex="12" Margin="147,94,107,109"/>
+						<PasswordBox x:Name="pwdPassword1" TabIndex="12" Margin="147,94,107,109" GotFocus="pwdPassword1_GotFocus" LostFocus="pwdPassword1_LostFocus"/>
 						<TextBlock x:Name="lblPassword2" Height="23" HorizontalAlignment="Left" Margin="14,0,0,76" Width="133" FontWeight="Bold" Text="Re-type Password" TextWrapping="Wrap" Foreground="#FF362776" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment, Height"/>
-						<PasswordBox x:Name="pwdPassword2" TabIndex="13" Margin="147,0,107,76" Height="23" VerticalAlignment="Bottom"/>
+						<PasswordBox x:Name="pwdPassword2" TabIndex="13" Margin="147,0,107,76" Height="23" VerticalAlignment="Bottom" GotFocus="pwdPassword2_GotFocus" LostFocus="pwdPassword2_LostFocus"/>
 						<TextBlock x:Name="lblEmail" Height="23" HorizontalAlignment="Left" Margin="14,62,0,0" Width="36" FontWeight="Bold" Text="Email" TextWrapping="Wrap" Foreground="#FF362776" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Top"/>
 						<local:ccTextBox x:Name="txtEmail" TabIndex="11" Margin="147,61,56,0" TextWrapping="Wrap" Height="24" VerticalAlignment="Top"/>
 						<Image x:Name="imguseridCheck" Margin="0,31,86,0" Source="green_checkmark.png" Height="16" HorizontalAlignment="Right" VerticalAlignment="Top" Width="19" Visibility="Collapsed"/>
