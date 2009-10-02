@@ -10,56 +10,61 @@
 	Title="InteractiveStats - Create New League"
 	d:DesignWidth="640" d:DesignHeight="480">
 	
-	<Grid x:Name="LayoutRoot" Background="White" >
-		<StackPanel x:Name="stkSteps" Height="74" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
-			<Image Margin="0,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step1_Active.png" Stretch="Fill"/>
-			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="/iStatsDev;Component/Views/arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
-			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step2_Inactive.png" Stretch="Fill" Height="78"/>
-			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
-			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step3_Inactive.png" Stretch="Fill"/>
-			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
-			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step4_Inactive.png" Stretch="Fill" Height="78"/>
-			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
-			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step5_Inactive.png" Stretch="Fill"/>
-			<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
-			<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step6_Inactive.png" Stretch="Fill" Height="78"/>
-		</StackPanel>
-		<StackPanel x:Name="stkLeagueDefinition" Margin="8,127,146,147">
-			<StackPanel x:Name="stkLeagueCountry" Height="24" VerticalAlignment="Top" Orientation="Horizontal">
-				<TextBlock x:Name="lblLeagueCountry" Margin="2,5,0,0" Text="League Country:" TextAlignment="Right" TextWrapping="Wrap" ToolTipService.ToolTip="In case of international league, select country where management will reside" HorizontalAlignment="Left" Tag="hello" d:LayoutOverrides="HorizontalAlignment"/>
-				<ComboBox x:Name="cboLeagueCountry" Width="135" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+	<Border BorderBrush="Black" BorderThickness="1" CornerRadius="3">
+	
+		<Grid x:Name="LayoutRoot" Background="White" Margin="0,0,-2,-2" >
+			<Grid.Effect>
+				<DropShadowEffect/>
+			</Grid.Effect>
+			<StackPanel x:Name="stkSteps" Height="74" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,9,0,0" HorizontalAlignment="Center">
+				<Image Margin="0,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step1_Active.png" Stretch="Fill"/>
+				<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="/iStatsDev;Component/Views/arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+				<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step2_Inactive.png" Stretch="Fill" Height="78"/>
+				<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+				<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step3_Inactive.png" Stretch="Fill"/>
+				<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+				<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step4_Inactive.png" Stretch="Fill" Height="78"/>
+				<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+				<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step5_Inactive.png" Stretch="Fill"/>
+				<Image HorizontalAlignment="Left" Margin="-5,22,0,24" Width="65" Source="../arrow.png" Stretch="Fill" d:LayoutOverrides="Height"/>
+				<Image Margin="-6,0,0,-4" Width="119" Source="/iStatsDev;Component/Views/League_Step6_Inactive.png" Stretch="Fill" Height="78"/>
 			</StackPanel>
-			<StackPanel x:Name="stkLeagueName" Height="24" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,5,0,0">
-				<TextBlock x:Name="lblLeagueName" Margin="2,5,0,0" Text="League Name:" TextAlignment="Right" TextWrapping="Wrap" ToolTipService.ToolTip="Name of the league" HorizontalAlignment="Left" Width="92" d:LayoutOverrides="HorizontalAlignment"/>
-				<local:ccTextBox x:Name="txtLeagueName" HorizontalAlignment="Left" Width="337" TextWrapping="Wrap" Margin="20,0,0,2"/>
-			</StackPanel>
-			<StackPanel x:Name="stkLeagueScope" Height="24" Margin="0,5,0,0" Orientation="Horizontal">
-				<TextBlock x:Name="lblLeagueScope" Margin="0,5,0,0" Text="League Scope:" TextWrapping="Wrap" ToolTipService.ToolTip="Area from which teams will organize" TextAlignment="Right" HorizontalAlignment="Left" Width="92" d:LayoutOverrides="HorizontalAlignment"/>
-				<StackPanel x:Name="stkRadioButtons" Height="19" Margin="20,0,0,0" Orientation="Horizontal" HorizontalAlignment="Right" Width="356">
-					<RadioButton x:Name="rdoCity" HorizontalAlignment="Left" Content="City" GroupName="scope" ToolTipService.ToolTip="Teams from around town can partake in this league (ie - Little League)" Checked="rdoCity_Checked"/>
-					<RadioButton x:Name="rdoCounty" HorizontalAlignment="Left" Margin="10,0,0,0" Content="County" GroupName="scope" ToolTipService.ToolTip="Teams from around the county can partake in this league (ie - High School)" Checked="rdoCounty_Checked"/>
-					<RadioButton x:Name="rdoState" Margin="10,0,0,0" Content="State" GroupName="scope" d:LayoutOverrides="Width" ToolTipService.ToolTip="Teams from all over the state can partake in this league (ie - state tournaments)" Checked="rdoState_Checked"/>
-					<RadioButton x:Name="rdoCountry" Margin="10,0,0,0" Content="Country" HorizontalAlignment="Left" GroupName="scope" ToolTipService.ToolTip="Teams from all over the country can partake in this league (ie - national tournaments)" Checked="rdoCountry_Checked"/>
-					<RadioButton x:Name="rdoInternational" Margin="10,0,0,0" Content="International" HorizontalAlignment="Left" GroupName="scope" ToolTipService.ToolTip="Teams from all over the world can partake in this league (ie - international tournaments)" Checked="rdoInternational_Checked"/>
+			<StackPanel x:Name="stkLeagueDefinition" Margin="8,111,146,163">
+				<StackPanel x:Name="stkLeagueCountry" Height="24" VerticalAlignment="Top" Orientation="Horizontal">
+					<TextBlock x:Name="lblLeagueCountry" Margin="2,5,0,0" Text="League Country:" TextAlignment="Right" TextWrapping="Wrap" ToolTipService.ToolTip="In case of international league, select country where management will reside" HorizontalAlignment="Left" Tag="hello" d:LayoutOverrides="HorizontalAlignment"/>
+					<ComboBox x:Name="cboLeagueCountry" Width="135" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+				</StackPanel>
+				<StackPanel x:Name="stkLeagueName" Height="24" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,5,0,0">
+					<TextBlock x:Name="lblLeagueName" Margin="2,3,0,0" Text="League Name:" TextAlignment="Right" TextWrapping="Wrap" ToolTipService.ToolTip="Name of the league" HorizontalAlignment="Left" Width="92" d:LayoutOverrides="HorizontalAlignment"/>
+					<local:ccTextBox x:Name="txtLeagueName" HorizontalAlignment="Left" Width="337" TextWrapping="Wrap" Margin="20,0,0,2"/>
+				</StackPanel>
+				<StackPanel x:Name="stkLeagueScope" Height="24" Margin="0,5,0,0" Orientation="Horizontal">
+					<TextBlock x:Name="lblLeagueScope" Margin="0,5,0,0" Text="League Scope:" TextWrapping="Wrap" ToolTipService.ToolTip="Area from which teams will organize" TextAlignment="Right" HorizontalAlignment="Left" Width="92" d:LayoutOverrides="HorizontalAlignment"/>
+					<StackPanel x:Name="stkRadioButtons" Height="19" Margin="20,0,0,0" Orientation="Horizontal" HorizontalAlignment="Right" Width="356">
+						<RadioButton x:Name="rdoCity" HorizontalAlignment="Left" Content="City" GroupName="scope" ToolTipService.ToolTip="Teams from around town can partake in this league (ie - Little League)" Checked="rdoCity_Checked"/>
+						<RadioButton x:Name="rdoCounty" HorizontalAlignment="Left" Margin="10,0,0,0" Content="County" GroupName="scope" ToolTipService.ToolTip="Teams from around the county can partake in this league (ie - High School)" Checked="rdoCounty_Checked"/>
+						<RadioButton x:Name="rdoState" Margin="10,0,0,0" Content="State" GroupName="scope" d:LayoutOverrides="Width" ToolTipService.ToolTip="Teams from all over the state can partake in this league (ie - state tournaments)" Checked="rdoState_Checked"/>
+						<RadioButton x:Name="rdoCountry" Margin="10,0,0,0" Content="Country" HorizontalAlignment="Left" GroupName="scope" ToolTipService.ToolTip="Teams from all over the country can partake in this league (ie - national tournaments)" Checked="rdoCountry_Checked"/>
+						<RadioButton x:Name="rdoInternational" Margin="10,0,0,0" Content="International" HorizontalAlignment="Left" GroupName="scope" ToolTipService.ToolTip="Teams from all over the world can partake in this league (ie - international tournaments)" Checked="rdoInternational_Checked"/>
+					</StackPanel>
+				</StackPanel>
+				<StackPanel x:Name="stkLeagueState" Height="24" Orientation="Horizontal" Margin="0,5,0,0">
+					<TextBlock x:Name="lblLeagueState" Margin="0,0,0,3" Text="State:" TextWrapping="Wrap" ToolTipService.ToolTip="" Width="94" TextAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+					<ComboBox x:Name="cboLeagueState" Margin="20,0,0,2" HorizontalAlignment="Left" Width="134" Height="20" VerticalAlignment="Bottom"/>
+					<local:ccTextBox x:Name="txtLeagueScopeDetail" Height="24" HorizontalAlignment="Left" Width="179" TextWrapping="Wrap" Margin="30,0,0,0" GotFocus="txtLeagueScopeDetail_GotFocus" Background="White"/>
+				</StackPanel>
+				<StackPanel x:Name="stkLeagueSport" Height="24" Margin="0,5,0,0" Orientation="Horizontal">
+					<TextBlock x:Name="lblLeagueSport" Text="Sport:" TextWrapping="Wrap" ToolTipService.ToolTip="" TextAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4" Width="94"/>
+					<ComboBox x:Name="cboLeagueSport" Width="134" HorizontalAlignment="Left" Margin="20,0,0,0" Height="20"/>
+				</StackPanel>
+				<StackPanel x:Name="stkLeagueYear" Orientation="Horizontal" Margin="0,5,0,0">
+					<TextBlock x:Name="lblLeagueYear" Margin="0" Text="Year:" TextWrapping="Wrap" ToolTipService.ToolTip="Year in which the league will primarily be active" HorizontalAlignment="Left" Width="94" TextAlignment="Right" Height="16" RenderTransformOrigin="0.489,-0.231"/>
+					<ComboBox x:Name="cboLeagueYear" Width="80" Margin="20,0,0,0"/>
 				</StackPanel>
 			</StackPanel>
-			<StackPanel x:Name="stkLeagueState" Height="24" Orientation="Horizontal" Margin="0,5,0,0">
-				<TextBlock x:Name="lblLeagueState" Margin="0,0,0,3" Text="State:" TextWrapping="Wrap" ToolTipService.ToolTip="" Width="94" TextAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-				<ComboBox x:Name="cboLeagueState" Margin="20,0,0,2" HorizontalAlignment="Left" Width="134" Height="20" VerticalAlignment="Bottom"/>
-				<local:ccTextBox x:Name="txtLeagueScopeDetail" Height="24" HorizontalAlignment="Left" Width="179" TextWrapping="Wrap" Margin="30,0,0,0" GotFocus="txtLeagueScopeDetail_GotFocus" Background="White"/>
-			</StackPanel>
-			<StackPanel x:Name="stkLeagueSport" Height="24" Margin="0,5,0,0" Orientation="Horizontal">
-				<TextBlock x:Name="lblLeagueSport" Text="Sport:" TextWrapping="Wrap" ToolTipService.ToolTip="" TextAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4" Width="94"/>
-				<ComboBox x:Name="cboLeagueSport" Width="134" HorizontalAlignment="Left" Margin="20,0,0,0" Height="20"/>
-			</StackPanel>
-			<StackPanel x:Name="stkLeagueYear" Orientation="Horizontal" Margin="0,5,0,0">
-				<TextBlock x:Name="lblLeagueYear" Margin="0" Text="Year:" TextWrapping="Wrap" ToolTipService.ToolTip="Year in which the league will primarily be active" HorizontalAlignment="Left" Width="94" TextAlignment="Right" Height="16" RenderTransformOrigin="0.489,-0.231"/>
-				<ComboBox x:Name="cboLeagueYear" Width="80" Margin="20,0,0,0"/>
-			</StackPanel>
-		</StackPanel>
-		<Button x:Name="btnNextOld" Height="29" Margin="288,386,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190">
-			<HyperlinkButton Height="16" Width="139" Content="Navigate to Next Page" Foreground="Black" TargetName="ContentFrame" NavigateUri="/LeagueSetup/leagueteamsmanagers"/>
-		</Button>
-		<Button x:Name="btnNext" Height="32" Margin="88,0,0,65" VerticalAlignment="Bottom" Content="Next&gt;&gt;" HorizontalAlignment="Left" Width="154" TabIndex="15" d:LayoutOverrides="VerticalAlignment"/>
-	</Grid>
+			<Button x:Name="btnNext" Margin="288,0,0,65" HorizontalAlignment="Left" Width="83" Height="29" VerticalAlignment="Bottom">
+				<HyperlinkButton Height="16" Width="54" Content="Next &gt;&gt;" Foreground="Black" TargetName="ContentFrame" NavigateUri="/LeagueSetup/leagueteamsmanagers"/>
+			</Button>
+		</Grid>
+	</Border>
 </navigation:Page>

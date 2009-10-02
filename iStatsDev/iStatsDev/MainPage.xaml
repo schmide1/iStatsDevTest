@@ -16,8 +16,8 @@
     		</LinearGradientBrush>
     	</Grid.Background>
 
-        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Background="{x:Null}">
-		<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Background="{x:Null}" CornerRadius="3">
+		<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,-2,0,2">
             <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
                               Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" Margin="0,15,0,0">
                 <navigation:Frame.UriMapper>
@@ -81,7 +81,6 @@
 
                 </StackPanel>
             </Border>
-            <Border Height="21" Margin="0,0,0,-20" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="1"/>
 
         </Grid>
 

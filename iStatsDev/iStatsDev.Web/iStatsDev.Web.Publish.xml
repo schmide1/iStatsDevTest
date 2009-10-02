@@ -1,11 +1,11 @@
 <publishData>
   <publishTarget publishUrl="ftp://97.74.215.18/dev/">
-    <file relUrl="bin/iStatsDev.Web.pdb" publishTime="09/28/2009 09:34:07" />
+    <file relUrl="bin/iStatsDev.Web.pdb" publishTime="10/02/2009 10:30:10" />
     <file relUrl="Silverlight.js" publishTime="09/27/2009 19:55:10" />
     <file relUrl="Default.aspx" publishTime="09/27/2009 19:55:10" />
+    <file relUrl="bin/iStatsDev.Web.dll" publishTime="10/02/2009 10:30:10" />
     <file relUrl="Service1.svc" publishTime="09/27/2009 19:55:10" />
-    <file relUrl="bin/iStatsDev.Web.dll" publishTime="09/28/2009 09:34:07" />
-    <file relUrl="ClientBin/iStatsDev.xap" publishTime="09/28/2009 09:34:10" />
     <file relUrl="Web.config" publishTime="09/27/2009 19:55:10" />
+    <file relUrl="ClientBin/iStatsDev.xap" publishTime="10/02/2009 10:30:10" />
   </publishTarget>
 </publishData>

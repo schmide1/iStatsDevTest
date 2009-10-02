@@ -83,11 +83,12 @@ namespace iStatsDev
         {
         	// TODO: Add event handler implementation here.				
 			if (this.txtLeagueScopeDetail.Text.Equals("Enter city") || (this.txtLeagueScopeDetail.Text.Equals("Enter county")))
-				this.txtLeagueScopeDetail.Text = "";				
-	
-			//txtLeagueScopeDetail.Foreground = new SolidColorBrush(Colors.Black);
-			//txtLeagueScopeDetail.Background = new SolidColorBrush(Color.FromArgb);
-		
+				this.txtLeagueScopeDetail.Text = "";						
+		}
+
+		private void btnNext_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			
 		}
     }
 }

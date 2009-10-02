@@ -9,7 +9,10 @@
 	x:Class="iStatsDev.register" 
 	Title="InteractiveStats - Registration" Margin="0,-4,0,4" HorizontalContentAlignment="Left" HorizontalAlignment="Center" Height="523">
 	<Grid x:Name="LayoutRoot" Margin="0,10,8,13" >
-		<Grid HorizontalAlignment="Left" Margin="0,13,0,31">
+		<Grid x:Name="grdRegister" HorizontalAlignment="Left" Margin="0,13,0,31">
+			<Grid.Effect>
+				<DropShadowEffect/>
+			</Grid.Effect>
 			<Border BorderBrush="#FF323759" BorderThickness="1" ScrollViewer.VerticalScrollBarVisibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top" CornerRadius="3" Height="448" Margin="0,-5,0,0" Background="White">
 				<Grid HorizontalAlignment="Left" Margin="0,8,0,7" Width="873" Background="White">
 					<Grid x:Name="grdOne" HorizontalAlignment="Left" Margin="0,-3,0,197" Width="428">
