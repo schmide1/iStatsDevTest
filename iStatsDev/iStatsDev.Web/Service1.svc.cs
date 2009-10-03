@@ -26,22 +26,47 @@ namespace iStatsDev.Web
 
         public bool SaveUser (User usrObject)
         {
-            DataClassesDataContext db = new DataClassesDataContext();
+            bool retVal = true;
 
-            db.Users.InsertOnSubmit(usrObject);
+            DataClassesDataContext db1 = new DataClassesDataContext();
+
+            db1.Addresses.InsertOnSubmit(usrObject.address);
 
             try
             {
-                db.SubmitChanges();
+                db1.SubmitChanges();
 
-                Event.logEvent(Event.EventType.Information, usrObject.UserNum, "Account saved");
-                
+                Event.logEvent(Event.EventType.Information, usrObject.address.AddressID, "Address saved");
+            }
+            catch (Exception e)
+            {
+                Event.logEvent(Event.EventType.Error, usrObject.address.AddressID, e.Message);
+                retVal = false;
+            }
+
+            usrObject.AddressID = usrObject.address.AddressID;
+
+            DataClassesDataContext db2 = new DataClassesDataContext();
+
+            db2.Users.InsertOnSubmit(usrObject);
+
+            try
+            {
+                db2.SubmitChanges();
+
+                Event.logEvent(Event.EventType.Information, usrObject.UserNum, "User saved");
             }
             catch (Exception e)
             {
                 Event.logEvent(Event.EventType.Error, usrObject.UserNum, e.Message);
+                retVal = false;
             }
 
+            return retVal;
+        }
+
+        bool LoginUser(string strUser, string strPass)
+        {
             return true;
         }
 

@@ -42,7 +42,7 @@ namespace iStatsDev.Web
     #endregion
 		
 		public DataClassesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DataSourceConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["istatsdevConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

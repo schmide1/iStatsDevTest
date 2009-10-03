@@ -1,3 +1,4 @@
+using System;
 namespace iStatsDev.Web
 {
     partial class DataClassesDataContext
@@ -50,6 +51,20 @@ namespace iStatsDev.Web
             evnt.Message = message;
             evnt.Type = (int)evntType;
             evnt.UserID = userId;
+
+            DataClassesDataContext db = new DataClassesDataContext();
+
+            db.Events.InsertOnSubmit(evnt);
+
+            try
+            {
+                db.SubmitChanges();
+
+            }
+            catch (Exception e)
+            {
+                e = e;
+            }
         }
     }
 }

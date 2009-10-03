@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="DataSource" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=istatsdev.db.3564049.hostedresource.com;Persist Security Info=True;User ID=istatsdev" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=istatsdev.db.3564049.hostedresource.com;Initial Catalog=istatsdev;Persist Security Info=True;User ID=istatsdev" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="istatsdevConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Events" Member="Events">
     <Type Name="Event">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

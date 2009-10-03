@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using System.Text;
 
 namespace iStatsDev
 {
@@ -59,6 +60,7 @@ namespace iStatsDev
             this.cboMonth.Items.Add("February");
             this.cboMonth.Items.Add("March");
             this.cboMonth.Items.Add("April");
+            this.cboMonth.Items.Add("May");
             this.cboMonth.Items.Add("June");
             this.cboMonth.Items.Add("July");
             this.cboMonth.Items.Add("August");
@@ -74,14 +76,12 @@ namespace iStatsDev
         {
         }
 
-        private void txtFirstName_GotFocus(object sender, RoutedEventArgs e)
-        {
-            txtFirstName.SelectAll();
-        }
-
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             Svc.User usr = new iStatsDev.Svc.User();
+
+            if (!validatePage())
+                return;
 
             usr.CreationDT = DateTime.Now.ToUniversalTime();
             usr.Email = txtEmail.Text;
@@ -89,7 +89,6 @@ namespace iStatsDev
             usr.LastName = txtLastName.Text;
             usr.Status = (int)userStatus.Pending;
             usr.UserType = (int)userTypes.Player;
-            usr.Password = pwdPassword1.Password;
 
             if (cboGender.SelectedItem.ToString().Equals("male", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -100,14 +99,45 @@ namespace iStatsDev
                 usr.Gender = (int)userGender.Female;
             }
 
+            Svc.Address add = new iStatsDev.Svc.Address();
+
+            add.Address1 = txtStreet.Text;
+            add.PostalCode = txtPostalCode.Text;
+            add.Country = cboCountry.SelectedItem.ToString();
+
+            usr.address = add;
+
+            // Password hashing
+            System.Security.Cryptography.SHA256Managed sha = new System.Security.Cryptography.SHA256Managed();
+
+            // Salted with User ID to prevent dictionary hits
+            byte[] hash = sha.ComputeHash(Encoding.Unicode.GetBytes(pwdPassword1.Password + usr.UserID));
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("x2"));
+            }
+
+            usr.Password = sb.ToString();
+
+            // Use webservice to save
             Svc.Service1Client svcClient = new iStatsDev.Svc.Service1Client();
             svcClient.SaveUserCompleted += new EventHandler<iStatsDev.Svc.SaveUserCompletedEventArgs>(svcClient_SaveUserCompleted);
             svcClient.SaveUserAsync(usr);
         }
 
+        private bool validatePage()
+        {
+            return true;
+        }
+
         void svcClient_SaveUserCompleted(object sender, iStatsDev.Svc.SaveUserCompletedEventArgs e)
         {
-            MessageBox.Show("Saved!");
+            if (e.Result)
+                MessageBox.Show("Saved!");
+            else
+                MessageBox.Show("Error!");
         }
 
         private void pwdPassword1_GotFocus(object sender, System.Windows.RoutedEventArgs e)
@@ -122,6 +152,20 @@ namespace iStatsDev
         	this.pwdPassword1.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
             this.pwdPassword1.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
             base.OnLostFocus(e);
+
+            checkPassword();
+        }
+
+        private void checkPassword()
+        {
+            if ((pwdPassword2.Password.Length > 0) && (pwdPassword1.Password.Length > 0) && (!pwdPassword2.Password.Equals(pwdPassword1.Password)))
+            {
+                imgpasswordConfirmX.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                imgpasswordConfirmX.Visibility = Visibility.Collapsed;
+            }
         }
  
 		private void pwdPassword2_GotFocus(object sender, System.Windows.RoutedEventArgs e)
@@ -136,6 +180,8 @@ namespace iStatsDev
         	this.pwdPassword2.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
             this.pwdPassword2.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
             base.OnLostFocus(e);
+
+            checkPassword();
         }
     }
 }

@@ -25,7 +25,7 @@
 						<CheckBox x:Name="chkPersistence" HorizontalAlignment="Left" Margin="26,194,0,180" Content="Keep me signed in..." d:LayoutOverrides="Height"/>
 						<TextBlock x:Name="lblPersistence" HorizontalAlignment="Right" Margin="0,0,53,164" Text="... for 2 weeks unless I sign out." TextWrapping="Wrap" VerticalAlignment="Bottom"/>
 						<TextBlock x:Name="lblWarning" Margin="0,0,0,148" VerticalAlignment="Bottom" Text="Do not check if on a public/shared computer" TextWrapping="Wrap" FontWeight="Bold" FontStyle="Italic" Width="290" TextAlignment="Center"/>
-						<Button x:Name="btnSignIn" Margin="0,0,21,111" VerticalAlignment="Bottom" Content="Sign In" HorizontalAlignment="Right" Width="75"/>
+						<Button x:Name="btnSignIn" Margin="0,0,21,111" VerticalAlignment="Bottom" Content="Sign In" HorizontalAlignment="Right" Width="75" Click="btnSignIn_Click"/>
 						<TextBlock x:Name="lblNoAccount" HorizontalAlignment="Right" Margin="0,0,85,35" VerticalAlignment="Bottom" FontSize="13.333" FontWeight="Bold" Foreground="#FF030984" Text="No Account? No Problem!" TextWrapping="Wrap" Width="193"/>
 						<TextBlock x:Name="lblCreateAccount" HorizontalAlignment="Left" Margin="26,0,0,19" VerticalAlignment="Bottom" Text="Create one in seconds..." TextWrapping="Wrap"/>
 						<HyperlinkButton x:Name="linkRegister" HorizontalAlignment="Right" Margin="0,0,18,19" VerticalAlignment="Bottom" Content="Register Now!" NavigateUri="/register" TargetName="ContentFrame" FontSize="13.333" FontWeight="Bold" d:LayoutOverrides="HorizontalAlignment" Height="19"/>

@@ -24,5 +24,10 @@ namespace iStatsDev
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
+        private void btnSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("TODO");
+        }
     }
 }

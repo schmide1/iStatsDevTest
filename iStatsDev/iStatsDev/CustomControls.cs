@@ -21,6 +21,7 @@ namespace iStatsDev
         {
             this.Background = new SolidColorBrush(Color.FromArgb(255, 194, 195, 233));
             this.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
+            this.SelectAll();
             base.OnGotFocus(e);
         }
 

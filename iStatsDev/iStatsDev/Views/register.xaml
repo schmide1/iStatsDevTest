@@ -30,7 +30,7 @@
 						<local:ccTextBox x:Name="txtPostalCode" TabIndex="9" Foreground="#FFA9AFBF" Width="66" TextWrapping="Wrap" Margin="112,202,0,0" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 						<TextBlock x:Name="lblCountry" Height="23" HorizontalAlignment="Left" Margin="22,0,0,43" Width="77" FontWeight="Bold" Text="Country" TextWrapping="Wrap" Foreground="#FF362776" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment, Height"/>
 						<ComboBox x:Name="cboCountry" TabIndex="8" Margin="112,0,67,43" Height="23" VerticalAlignment="Bottom"/>
-						<local:ccTextBox x:Name="txtFirstName" TabIndex="1" Foreground="#FFA9AFBF" HorizontalAlignment="Left" Width="113" Text="First Name" TextWrapping="Wrap" Margin="111,42,0,0" Height="23" VerticalAlignment="Top" GotFocus="txtFirstName_GotFocus"/>
+						<local:ccTextBox x:Name="txtFirstName" TabIndex="1" Foreground="#FFA9AFBF" HorizontalAlignment="Left" Width="113" Text="First Name" TextWrapping="Wrap" Margin="111,42,0,0" Height="23" VerticalAlignment="Top"/>
 						<local:ccTextBox x:Name="txtLastName" TabIndex="2" Foreground="#FFA9AFBF" Height="23" HorizontalAlignment="Left" Width="113" Text="Last Name" TextWrapping="Wrap" Margin="234,42,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
 						<Image x:Name="imgnameCheck" Height="16" HorizontalAlignment="Right" Margin="0,45,56,0" VerticalAlignment="Top" Width="19" Source="green_checkmark.png" Visibility="Collapsed"/>
 						<Image x:Name="imgnameX" Height="16" HorizontalAlignment="Right" Margin="0,45,56,0" VerticalAlignment="Top" Width="19" Source="red_x.png" Visibility="Collapsed"/>
