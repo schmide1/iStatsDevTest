@@ -16,20 +16,6 @@
     		</LinearGradientBrush>
     	</Grid.Background>
 
-        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Background="{x:Null}" CornerRadius="3">
-		<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,-2,0,2">
-            <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
-                              Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" Margin="0,15,0,0">
-                <navigation:Frame.UriMapper>
-                  <uriMapper:UriMapper>
-                    <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
-                    <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
-                  </uriMapper:UriMapper>
-                </navigation:Frame.UriMapper>
-            </navigation:Frame>
-        </ScrollViewer>
-		</Border>
-
         <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}">
         	<Grid.Background>
         		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -83,6 +69,38 @@
             </Border>
 
         </Grid>
+
+        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Background="{x:Null}" CornerRadius="3" Margin="0,42,0,25">
+		<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,-2,0,0">
+            <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
+                              Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" Margin="0,15,0,0">
+                <navigation:Frame.UriMapper>
+                  <uriMapper:UriMapper>
+                    <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
+                    <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
+                  </uriMapper:UriMapper>
+                </navigation:Frame.UriMapper>
+            </navigation:Frame>
+        </ScrollViewer>
+		</Border>
+    	<Grid Height="25" Margin="8,0" VerticalAlignment="Bottom">
+    		<StackPanel Margin="0" VerticalAlignment="Bottom" Orientation="Horizontal">
+    			<TextBlock x:Name="lblCopyright" Height="15" Margin="10,0,0,0" Foreground="White" Text="InteractiveStats © 2009" TextWrapping="Wrap"/>
+    			<HyperlinkButton x:Name="linkAbout" Foreground="White" Height="15" Margin="750,0,0,0" Content="About"/>
+    			<Rectangle x:Name="Dividerlink" Style="{StaticResource DividerStyle}" Margin="4"/>
+    			<HyperlinkButton x:Name="linkAdvertising" Foreground="White" Height="15" Content="Advertising" Margin="0,5"/>
+    			<Rectangle x:Name="DividerAd" Style="{StaticResource DividerStyle}" Margin="4"/>
+    			<HyperlinkButton x:Name="linkTerms" Foreground="White" Height="15" Content="Terms" Margin="0,5"/>
+    			<Rectangle x:Name="DividerTerms" Style="{StaticResource DividerStyle}" Margin="4"/>
+    			<HyperlinkButton x:Name="linkSearch" Foreground="White" Height="15" Content="Search" Margin="0,5"/>
+    			<Rectangle x:Name="DividerSearch" Style="{StaticResource DividerStyle}" Margin="4"/>
+    			<HyperlinkButton x:Name="linkPrivacy" Foreground="White" Height="15" Content="Privacy" Margin="0,5"/>
+    			<Rectangle x:Name="DividerPrivacy" Style="{StaticResource DividerStyle}" Margin="4"/>
+    			<HyperlinkButton x:Name="linkMobile" Foreground="White" Height="15" Content="Mobile" Margin="0,5"/>
+    			<Rectangle x:Name="DividerMobile" Style="{StaticResource DividerStyle}" Margin="4"/>
+    			<HyperlinkButton x:Name="linkHelp" Foreground="White" Height="15" Content="Help" Margin="0,5"/>
+    		</StackPanel>
+    	</Grid>
 
     </Grid>
 

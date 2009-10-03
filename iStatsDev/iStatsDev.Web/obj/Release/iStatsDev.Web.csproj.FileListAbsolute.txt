@@ -1,10 +1,10 @@
-C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\bin\iStatsDev.Web.dll
-C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\bin\iStatsDev.Web.pdb
-C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\obj\Release\ResolveAssemblyReference.cache
-C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\obj\Release\iStatsDev.Web.dll
-C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\obj\Release\iStatsDev.Web.pdb
 F:\Users\bojan\Documents\Visual Studio 2008\Projects\iStatsDev\iStatsDev\iStatsDev.Web\bin\iStatsDev.Web.dll
 F:\Users\bojan\Documents\Visual Studio 2008\Projects\iStatsDev\iStatsDev\iStatsDev.Web\bin\iStatsDev.Web.pdb
 F:\Users\bojan\Documents\Visual Studio 2008\Projects\iStatsDev\iStatsDev\iStatsDev.Web\obj\Release\ResolveAssemblyReference.cache
 F:\Users\bojan\Documents\Visual Studio 2008\Projects\iStatsDev\iStatsDev\iStatsDev.Web\obj\Release\iStatsDev.Web.dll
 F:\Users\bojan\Documents\Visual Studio 2008\Projects\iStatsDev\iStatsDev\iStatsDev.Web\obj\Release\iStatsDev.Web.pdb
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\bin\iStatsDev.Web.dll
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\bin\iStatsDev.Web.pdb
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\obj\Release\iStatsDev.Web.dll
+C:\Users\Ed\iStatsDevTest\iStatsDev\iStatsDev.Web\obj\Release\iStatsDev.Web.pdb
