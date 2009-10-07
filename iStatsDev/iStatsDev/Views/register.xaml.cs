@@ -81,7 +81,9 @@ namespace iStatsDev
             Svc.User usr = new iStatsDev.Svc.User();
 
             if (!validatePage())
+            {
                 return;
+            }
 
             usr.CreationDT = DateTime.Now.ToUniversalTime();
             usr.Email = txtEmail.Text;
@@ -89,6 +91,7 @@ namespace iStatsDev
             usr.LastName = txtLastName.Text;
             usr.Status = (int)userStatus.Pending;
             usr.UserType = (int)userTypes.Player;
+            usr.UserID = txtUserID.Text;
 
             if (cboGender.SelectedItem.ToString().Equals("male", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -107,19 +110,7 @@ namespace iStatsDev
 
             usr.address = add;
 
-            // Password hashing
-            System.Security.Cryptography.SHA256Managed sha = new System.Security.Cryptography.SHA256Managed();
-
-            // Salted with User ID to prevent dictionary hits
-            byte[] hash = sha.ComputeHash(Encoding.Unicode.GetBytes(pwdPassword1.Password + usr.UserID));
-
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sb.Append(hash[i].ToString("x2"));
-            }
-
-            usr.Password = sb.ToString();
+            usr.Password = UtilClass.GetPasswordHash(usr.UserID, pwdPassword1.Password);
 
             // Use webservice to save
             Svc.Service1Client svcClient = new iStatsDev.Svc.Service1Client();

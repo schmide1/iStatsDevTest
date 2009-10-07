@@ -65,9 +65,20 @@ namespace iStatsDev.Web
             return retVal;
         }
 
-        bool LoginUser(string strUser, string strPass)
+        public bool LoginUser(string strUser, string strPass)
         {
-            return true;
+            bool retVal = false;
+
+            DataClassesDataContext db = new DataClassesDataContext();
+
+            var users = from Users in db.Users
+                        where Users.UserID.Equals(strUser) && Users.Password.Equals(strPass)
+                        select Users;
+
+            if (users.Count() == 1)
+                retVal = true;
+
+            return retVal;
         }
 
         #endregion

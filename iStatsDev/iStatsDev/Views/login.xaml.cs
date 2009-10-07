@@ -27,7 +27,25 @@ namespace iStatsDev
 
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("TODO");
+            string strUser = txtLogin.Text;
+            string strPass = txtPassword.Password;
+            string strHash = UtilClass.GetPasswordHash(strUser, strPass);
+
+            Svc.Service1Client svcClient = new iStatsDev.Svc.Service1Client();
+            svcClient.LoginUserCompleted += new EventHandler<iStatsDev.Svc.LoginUserCompletedEventArgs>(svcClient_LoginUserCompleted);
+            svcClient.LoginUserAsync(strUser, strHash);
+        }
+
+        void svcClient_LoginUserCompleted(object sender, iStatsDev.Svc.LoginUserCompletedEventArgs e)
+        {
+            if (!e.Result)
+            {
+                MessageBox.Show("Loggin failed!");
+            }
+            else
+            {
+                MessageBox.Show("Logged in");
+            }
         }
     }
 }
