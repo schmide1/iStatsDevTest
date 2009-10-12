@@ -19,5 +19,8 @@ namespace iStatsDev.Web
 
         [OperationContract]
         bool LoginUser(string strUser, string strPass);
+
+        [OperationContract]
+        bool UsernameInUse(string strUsername);
     }
 }

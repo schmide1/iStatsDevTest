@@ -81,6 +81,22 @@ namespace iStatsDev.Web
             return retVal;
         }
 
+        public bool UsernameInUse(string strUsername)
+        {
+            bool retVal = false;
+
+            DataClassesDataContext db = new DataClassesDataContext();
+
+            var users = from Users in db.Users
+                        where Users.UserID.Equals(strUsername)
+                        select Users;
+
+            if (users.Count() == 1)
+                retVal = true;
+
+            return retVal;
+        }
+
         #endregion
     }
 }

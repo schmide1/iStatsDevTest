@@ -69,6 +69,32 @@ namespace iStatsDev
             this.cboMonth.Items.Add("November");
             this.cboMonth.Items.Add("December");
 
+            // Add handlers to data
+            this.txtUserID.LostFocus += new RoutedEventHandler(txtUserID_LostFocus);
+        }
+
+        void txtUserID_LostFocus(object sender, RoutedEventArgs e)
+        {
+            // Check if email is already in use.
+
+            Svc.Service1Client svcClient = new iStatsDev.Svc.Service1Client();
+
+            svcClient.UsernameInUseCompleted += new EventHandler<iStatsDev.Svc.UsernameInUseCompletedEventArgs>(svcClient_UsernameInUseCompleted);
+            svcClient.UsernameInUseAsync(txtUserID.Text);
+        }
+
+        void svcClient_UsernameInUseCompleted(object sender, iStatsDev.Svc.UsernameInUseCompletedEventArgs e)
+        {
+            if (!e.Result)
+            {
+                imguseridCheck.Visibility = Visibility.Visible;
+                imguseridX.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                imguseridCheck.Visibility = Visibility.Collapsed;
+                imguseridX.Visibility = Visibility.Visible;
+            }
         }
 
         // Executes when the user navigates to this page.

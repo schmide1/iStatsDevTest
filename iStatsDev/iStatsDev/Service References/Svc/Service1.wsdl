@@ -25,6 +25,12 @@
   <wsdl:message name="IService1_LoginUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UsernameInUse_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsernameInUse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsernameInUse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsernameInUseResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="getUserByID">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/getUserByID" message="tns:IService1_getUserByID_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="LoginUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginUser" message="tns:IService1_LoginUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoginUserResponse" message="tns:IService1_LoginUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsernameInUse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsernameInUse" message="tns:IService1_UsernameInUse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsernameInUseResponse" message="tns:IService1_UsernameInUse_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="LoginUser">
       <soap:operation soapAction="http://tempuri.org/IService1/LoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsernameInUse">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsernameInUse" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

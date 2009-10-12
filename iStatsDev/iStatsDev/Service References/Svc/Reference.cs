@@ -423,6 +423,11 @@ namespace iStatsDev.Svc {
         System.IAsyncResult BeginLoginUser(string strUser, string strPass, System.AsyncCallback callback, object asyncState);
         
         bool EndLoginUser(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/UsernameInUse", ReplyAction="http://tempuri.org/IService1/UsernameInUseResponse")]
+        System.IAsyncResult BeginUsernameInUse(string strUsername, System.AsyncCallback callback, object asyncState);
+        
+        bool EndUsernameInUse(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -488,6 +493,25 @@ namespace iStatsDev.Svc {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    public partial class UsernameInUseCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UsernameInUseCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
     public partial class Service1Client : System.ServiceModel.ClientBase<iStatsDev.Svc.IService1>, iStatsDev.Svc.IService1 {
         
         private BeginOperationDelegate onBegingetUserByIDDelegate;
@@ -507,6 +531,12 @@ namespace iStatsDev.Svc {
         private EndOperationDelegate onEndLoginUserDelegate;
         
         private System.Threading.SendOrPostCallback onLoginUserCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUsernameInUseDelegate;
+        
+        private EndOperationDelegate onEndUsernameInUseDelegate;
+        
+        private System.Threading.SendOrPostCallback onUsernameInUseCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -566,6 +596,8 @@ namespace iStatsDev.Svc {
         public event System.EventHandler<SaveUserCompletedEventArgs> SaveUserCompleted;
         
         public event System.EventHandler<LoginUserCompletedEventArgs> LoginUserCompleted;
+        
+        public event System.EventHandler<UsernameInUseCompletedEventArgs> UsernameInUseCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -711,6 +743,52 @@ namespace iStatsDev.Svc {
                         strPass}, this.onEndLoginUserDelegate, this.onLoginUserCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult iStatsDev.Svc.IService1.BeginUsernameInUse(string strUsername, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUsernameInUse(strUsername, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool iStatsDev.Svc.IService1.EndUsernameInUse(System.IAsyncResult result) {
+            return base.Channel.EndUsernameInUse(result);
+        }
+        
+        private System.IAsyncResult OnBeginUsernameInUse(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string strUsername = ((string)(inValues[0]));
+            return ((iStatsDev.Svc.IService1)(this)).BeginUsernameInUse(strUsername, callback, asyncState);
+        }
+        
+        private object[] OnEndUsernameInUse(System.IAsyncResult result) {
+            bool retVal = ((iStatsDev.Svc.IService1)(this)).EndUsernameInUse(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUsernameInUseCompleted(object state) {
+            if ((this.UsernameInUseCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UsernameInUseCompleted(this, new UsernameInUseCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UsernameInUseAsync(string strUsername) {
+            this.UsernameInUseAsync(strUsername, null);
+        }
+        
+        public void UsernameInUseAsync(string strUsername, object userState) {
+            if ((this.onBeginUsernameInUseDelegate == null)) {
+                this.onBeginUsernameInUseDelegate = new BeginOperationDelegate(this.OnBeginUsernameInUse);
+            }
+            if ((this.onEndUsernameInUseDelegate == null)) {
+                this.onEndUsernameInUseDelegate = new EndOperationDelegate(this.OnEndUsernameInUse);
+            }
+            if ((this.onUsernameInUseCompletedDelegate == null)) {
+                this.onUsernameInUseCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUsernameInUseCompleted);
+            }
+            base.InvokeAsync(this.onBeginUsernameInUseDelegate, new object[] {
+                        strUsername}, this.onEndUsernameInUseDelegate, this.onUsernameInUseCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -824,6 +902,19 @@ namespace iStatsDev.Svc {
             public bool EndLoginUser(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 bool _result = ((bool)(base.EndInvoke("LoginUser", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUsernameInUse(string strUsername, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = strUsername;
+                System.IAsyncResult _result = base.BeginInvoke("UsernameInUse", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndUsernameInUse(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("UsernameInUse", _args, result)));
                 return _result;
             }
         }
